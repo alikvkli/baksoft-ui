@@ -18,10 +18,12 @@ const persistConfig = {
     transforms: [encryptor]
 };
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 //@ts-ignore
 const persistedReducer = persistReducer(persistConfig, reducers);
 
 export const store = configureStore({
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     //@ts-ignore
     reducer: typeof window !== "undefined" ? persistedReducer : reducers,
     middleware: (getDefaultMiddleware) =>
