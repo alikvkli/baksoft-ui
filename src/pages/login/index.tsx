@@ -53,7 +53,10 @@ export default function Login() {
           </button>
         </div>
       </header>
-      <div className="fixed inset-0 z-30 transition-all transform">
+      <div className={classNames("fixed inset-0 z-30 transition-all transform ", {
+        "translate-x-0": menuOpen,
+        "translate-x-full": !menuOpen
+      })}>
         <div className={classNames("absolute inset-0 bg-black transition-opacity duration-300", {
           "opacity-50": menuOpen,
           "opacity-0": !menuOpen
