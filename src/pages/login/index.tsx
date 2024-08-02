@@ -47,16 +47,15 @@ export default function Login() {
         </div>
         <div className="flex items-center gap-4 max-sm:hidden">
           <Button
-            buttonName="Kayıt Ol"
-            icon={IoPersonAddOutline}
-            iconSize={13}
-            iconColor="#FFFFFF"
-            iconLocation="right"
+            buttonText="Kayıt Ol"
+            prefixIcon={{
+              icon: IoPersonAddOutline,
+              iconColor: "#FFF"
+            }}
           />
           <Button
-            buttonName="Giriş"
+            buttonText="Giriş"
             variant="secondary"
-            className="rounded-full"
           />
         </div>
       </header>

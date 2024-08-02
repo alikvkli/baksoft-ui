@@ -6,45 +6,42 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
       className,
-      icon: Icon,
-      iconColor = "#FFFFFF",
-      iconSize = 13,
-      buttonName,
+      prefixIcon,
+      suffixIcon,
+      buttonText,
       variant = "primary",
-      iconLocation = "left",
-      width = "w-28",
-      rounded = "rounded-md",
       ...props
     },
     ref
   ) => {
-    const baseStyles =
-      "text-xs font-bold h-[38px] gap-4 flex items-center justify-center";
-    const variantStyles = {
+
+    const _prefixIcon = prefixIcon?.icon;
+    const _prefixIconColor = prefixIcon?.iconColor;
+    const _prefixIconSize = prefixIcon?.iconSize ?? 13;
+
+    const _suffixIcon = suffixIcon?.icon;
+    const _suffixIconColor = suffixIcon?.iconColor;
+    const _suffixIconSize = suffixIcon?.iconSize ?? 13;
+
+    const variantClasses = {
       primary: "bg-[#F48023] text-white  hover:bg-[#F48023]/80",
-      secondary: "bg-[#EAEAEA] text-[#1682FD] hover:bg-[#EAEAEA]/80",
-    };
-    const iconLocStyle = {
-      left: "",
-      right: "flex-row-reverse",
-    };
+      secondary: "bg-[#EAEAEA] text-[#1682FD] hover:bg-[#EAEAEA]/80"
+
+    }
+
     return (
-      <div>
-        <button
-          ref={ref}
-          {...props}
-          className={cn(
-            className,
-            width,
-            rounded,
-            baseStyles,
-            variantStyles[variant],
-            iconLocStyle[iconLocation]
-          )}
-        >
-          {Icon && <Icon size={iconSize} color={iconColor} />} {buttonName}
-        </button>
-      </div>
+      <button
+        ref={ref}
+        {...props}
+        className={cn(
+          "rounded-md px-5 py-3 text-xs font-bold h-[38px] gap-4 flex items-center justify-center",
+          variantClasses[variant],
+          className
+        )}>
+        {_prefixIcon && <_prefixIcon size={_prefixIconSize} color={_prefixIconColor} />}
+        {buttonText}
+        {_suffixIcon && <_suffixIcon size={_suffixIconSize} color={_suffixIconColor} />}
+      </button>
     );
   }
 );
