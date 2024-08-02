@@ -5,13 +5,13 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   prefixIcon?: {
     icon: IconType;
-    iconColor?: string;
-    iconSize?: number;
+    color?: string;
+    size?: number;
   }
   suffixIcon?: {
     icon: IconType;
-    iconColor?: string;
-    iconSize?: number;
+    color?: string;
+    size?: number;
   }
   buttonText: string;
   variant?: "primary" | "secondary";

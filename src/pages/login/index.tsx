@@ -50,7 +50,7 @@ export default function Login() {
             buttonText="Kayıt Ol"
             prefixIcon={{
               icon: IoPersonAddOutline,
-              iconColor: "#FFF"
+              color: "#FFF"
             }}
           />
           <Button

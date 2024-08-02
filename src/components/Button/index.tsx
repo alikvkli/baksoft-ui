@@ -16,12 +16,12 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ) => {
 
     const _prefixIcon = prefixIcon?.icon;
-    const _prefixIconColor = prefixIcon?.iconColor;
-    const _prefixIconSize = prefixIcon?.iconSize ?? 13;
+    const _prefixIconColor = prefixIcon?.color;
+    const _prefixIconSize = prefixIcon?.size ?? 13;
 
     const _suffixIcon = suffixIcon?.icon;
-    const _suffixIconColor = suffixIcon?.iconColor;
-    const _suffixIconSize = suffixIcon?.iconSize ?? 13;
+    const _suffixIconColor = suffixIcon?.color;
+    const _suffixIconSize = suffixIcon?.size ?? 13;
 
     const variantClasses = {
       primary: "bg-[#F48023] text-white  hover:bg-[#F48023]/80",
