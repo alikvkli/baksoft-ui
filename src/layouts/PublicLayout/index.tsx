@@ -106,7 +106,7 @@ export default function PublicLayout({ children }: IPublicLayout) {
                     "translate-x-0": menuOpen,
                     "translate-x-full": !menuOpen,
                 })}>
-                    <div className="flex flex-col gap-4 p-4">
+                    <div className="flex flex-col gap-4 p-4 h-full overflow-y-auto">
                         <button onClick={toggleMenu} className="self-end mb-4">
                             <IoCloseOutline size={24} />
                         </button>
@@ -126,11 +126,11 @@ export default function PublicLayout({ children }: IPublicLayout) {
                     })}
                     onClick={toggleHashtagMenu} />
                 <div className={classNames(
-                    "absolute top-0 right-0 h-full w-full bg-white shadow-md z-40 transition-transform transform", {
+                    "absolute top-0 right-0 h-full w-4/5 bg-white shadow-md z-40 transition-transform transform", {
                     "translate-x-0": hashtagMenuOpen,
                     "translate-x-full": !hashtagMenuOpen,
                 })}>
-                    <div className="flex flex-col gap-4 p-4">
+                    <div className="flex flex-col gap-4 p-4 h-full overflow-y-auto">
                         <button onClick={toggleHashtagMenu} className="self-end mb-4">
                             <IoCloseOutline size={24} />
                         </button>

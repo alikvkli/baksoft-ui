@@ -14,7 +14,7 @@ export default function CaptionSection() {
 
             <p className="px-12  text-sm mt-7 text-[#808080] max-md:px-4">BUGÜN</p>
 
-            <div className="flex mt-2.5 flex-col gap-2 max-h-[calc(100vh-210px)] overflow-y-auto">
+            <div className="flex mt-2.5 flex-col gap-2 max-h-[calc(100vh-210px)] max-md:h-full overflow-y-auto">
                 {captions.map((item, key) => (
                     <Link to="/" key={key} className="max-md:px-4 px-12 transition-all py-3 hover:border-l-4 hover:border-[#F48023] hover:bg-[#FCF4EC] text-black text-sm hover:text-[#F48023] hover:font-semibold">
                         {item.text}
