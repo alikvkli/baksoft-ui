@@ -1,7 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import Root from "./root";
 import HomePage from "@/pages/home";
-import Login from "@/pages/login";
+import LoginPage from "@/pages/login";
+import RegisterPage from "@/pages/register";
 
 export const router = createBrowserRouter([
   {
@@ -14,7 +15,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "giris-yap",
-        element: <Login />,
+        element: <LoginPage />,
+      },
+      {
+        path: "kayit-ol",
+        element: <RegisterPage />,
       },
     ],
   },
