@@ -46,7 +46,6 @@ export default function HomePage() {
           </div>
 
           <div className="flex flex-col gap-4 mt-4">
-
             {Array.from({ length: 12 }).map((_, key) => (
               <CaptionCard key={key} />
             ))}

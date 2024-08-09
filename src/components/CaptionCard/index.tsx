@@ -54,7 +54,7 @@ const CaptionCard = () => {
                 </Menu>
 
             </div>
-            <Link to="/baslik" className="font-sans font-semibold">superman shazam the return of black adam</Link>
+            <Link to="/baslik/superman-shazam" className="font-sans font-semibold">superman shazam the return of black adam</Link>
             <p className="text-sm font-thin mt-4">superman ile shazam'in bir olun black adam'i patakladigi 25 dakikalik animasyon. senaryo falan yok, iki super kahraman bir olup black adam'i dovuyorlar hepsi bu.</p>
 
             <div className="flex items-center justify-between mt-4 max-md:flex-col-reverse max-md:items-start max-md:gap-4">

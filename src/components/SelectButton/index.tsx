@@ -1,4 +1,3 @@
-import { FC } from "react";
 import { ISelectButton } from "./index.type";
 import { forwardRef } from "react";
 import { cn } from "@/lib/utils";
