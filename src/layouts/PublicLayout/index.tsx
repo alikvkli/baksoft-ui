@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useAppSelector } from "../../hooks";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { HiOutlineMenu } from "react-icons/hi";
 import classNames from "classnames";
 import { IoCloseOutline, IoPersonAddOutline } from "react-icons/io5";
@@ -19,7 +19,24 @@ export default function PublicLayout({ children }: IPublicLayout) {
     const [menuOpen, setMenuOpen] = useState(false);
     const [hashtagMenuOpen, setHashtagMenuOpen] = useState(false);
     const { login } = useAppSelector(state => state.app);
+    const location = useLocation();
+
+    const prevLocationRef = useRef<string | null>(null);
+    const [shouldMenuClose, setShouldMenuClose] = useState(false);
+
+    useEffect(() => {
+        if (prevLocationRef.current && prevLocationRef.current !== location.pathname && menuOpen) {
+            setShouldMenuClose(true);
+        }
+        prevLocationRef.current = location.pathname;
+      }, [location,menuOpen]);
     
+      useEffect(() => {
+        if (shouldMenuClose) {
+          toggleMenu();
+          setShouldMenuClose(false);
+        }
+      }, [shouldMenuClose]);
 
     useEffect(() => {
         if (login) {
@@ -62,7 +79,7 @@ export default function PublicLayout({ children }: IPublicLayout) {
 
     return (
         <main>
-            <header className="sticky bg-white top-0 z-20 h-[84px] px-8 py-4 border-b border-[#EAEAEA] shadow-md flex items-center justify-between">
+            <header className="fixed bg-white top-0 z-50 left-0 right-0 bottom-0 h-[84px] px-8 py-4 border-b border-[#EAEAEA] shadow-md flex items-center justify-between">
                 <Link to="/" className="flex items-center gap-4">
                     <img src={Logo} alt="logo" width={25} height={30} />
                     <p>
@@ -90,7 +107,7 @@ export default function PublicLayout({ children }: IPublicLayout) {
                     />
                 </div>
             </header>
-            <div className={classNames("fixed inset-0 z-30 transition-all transform ", {
+            <div className={classNames("fixed inset-0 z-[60] transition-all transform ", {
                 "translate-x-0": menuOpen,
                 "translate-x-full": !menuOpen,
             })}>
@@ -102,7 +119,7 @@ export default function PublicLayout({ children }: IPublicLayout) {
                     })}
                     onClick={toggleMenu} />
                 <div className={classNames(
-                    "absolute top-0 right-0 h-full w-full bg-white shadow-md z-40 transition-transform transform", {
+                    "absolute top-0 right-0 h-full w-full bg-white shadow-md z-[60] transition-transform transform", {
                     "translate-x-0": menuOpen,
                     "translate-x-full": !menuOpen,
                 })}>
@@ -114,7 +131,7 @@ export default function PublicLayout({ children }: IPublicLayout) {
                     </div>
                 </div>
             </div>
-            <div className={classNames("fixed inset-0 z-30 transition-all transform ", {
+            <div className={classNames("fixed inset-0 z-[60] transition-all transform ", {
                 "translate-x-0": hashtagMenuOpen,
                 "translate-x-full": !hashtagMenuOpen,
             })}>
@@ -126,7 +143,7 @@ export default function PublicLayout({ children }: IPublicLayout) {
                     })}
                     onClick={toggleHashtagMenu} />
                 <div className={classNames(
-                    "absolute top-0 right-0 h-full w-4/5 bg-white shadow-md z-40 transition-transform transform", {
+                    "absolute top-0 right-0 h-full w-4/5 bg-white shadow-md z-[60] transition-transform transform", {
                     "translate-x-0": hashtagMenuOpen,
                     "translate-x-full": !hashtagMenuOpen,
                 })}>

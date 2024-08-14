@@ -3,7 +3,7 @@ import Root from "./root";
 import HomePage from "@/pages/home";
 import LoginPage from "@/pages/login";
 import RegisterPage from "@/pages/register";
-import CaptionDetail from "@/pages/caption-detail";
+import CaptionRouter from "./caption-router";
 
 export const router = createBrowserRouter([
   {
@@ -23,8 +23,8 @@ export const router = createBrowserRouter([
         element: <RegisterPage />,
       },
       {
-        path: "baslik/:caption_slug",
-        element: <CaptionDetail />
+        path: "/:caption_slug",
+        element: <CaptionRouter />
       }
     ],
   },
